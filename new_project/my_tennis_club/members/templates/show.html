@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Django CRUD Operations</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head>
+<body>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr style="color: brown;">
+        <th>Coupon_Rate </th>
+		<th>ISIN</th>
+		<th>Name_of_the_security</th>
+		<th>CATEGORY</th>
+		<th>Rating_Agency</th>
+        <th>Maturity_Date</th>
+        <th>IP_Dates</th>
+        <th>Put_Call_Option</th>
+        <th>Price_Per_100</th>
+        <th>YTM</th>
+        <th>YTC_YTP</th>
+        <th>Face_Value</th>
+        <th>Quantum</th>
+
+      </tr>
+    </thead>
+    <tbody>
+	{% for stud in Products %}  
+      <tr>
+        <td>{{stud.Coupon_Rate}}</td>
+        <td>{{stud.ISIN}}</td>
+		    <td>{{stud.Name_of_the_security}}</td>
+		    <td>{{stud.CATEGORY}}</td>
+		    <td>{{stud.Rating_Agency}}</td>
+        <td>{{stud.Maturity_Date}}</td>
+        <td>{{stud.IP_Dates}}</td>
+        <td>{{stud.Put_Call_Option}}</td>
+        <td>{{stud.Price_Per_100}}</td>
+        <td>{{stud.YTM}}</td>
+        <td>{{stud.YTC_YTP}}</td>
+        <td>{{stud.Face_Value}}</td>
+        <td>{{stud.Quantum}}</td>
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+<form action="">
+<a href="download" download="xlsx">
+  <button type="submit">Download</button>  
+</form>  
+</body>
+</html>

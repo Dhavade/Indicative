@@ -1,0 +1,63 @@
+<!--<html>
+    <head> 
+        <style>
+           h2{
+            color: brown;
+            font-style: oblique;
+            font-size: xx-large;
+           }
+          .btn{
+            border: 2px solid gray;
+            color: rgb(246, 246, 247);
+            background-color: white;
+            padding: 3px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgb(26, 26, 68);
+          }
+          .btn1{
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 3px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        </style>
+    </head>-->
+    
+    <body style="background-color: antiquewhite;">
+        {% if messages %}
+        {% for message in messages %}
+ 
+        <div class="alert alert-{{message.tags}} " role="alert">
+           <p {% if message.tags%} class=""{% endif %}>{{message}}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <center>
+        <form method="post" enctype="multipart/form-data" action="">
+            <h2>
+                Please Uplode Excel File 
+            </h2>
+            {% csrf_token %}
+
+            <label for="fname" style="color: #FF5722;">Price_Per_100:</label><br>
+            <input required type="text" id="fname" name="num"><br><br>
+
+            <input required type="file" name="myfile">
+            <button class="btn1" name="uploade"  type="submit" style="color: #E91E63; background-color: #8BC34A ;" >Upload</button>
+            <br><br>
+         
+            <a class="btn" href="\hello_world.xlsx">  download </a> 
+            <br><br>
+        </form>
+        </center>
+        {{table|safe}}
+
+    </body>
+</html> 

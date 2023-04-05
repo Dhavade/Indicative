@@ -1,0 +1,77 @@
+{% load static %}
+<html>
+    <head> 
+        <style>
+           h2{
+            color: brown;
+            font-style: oblique;
+            font-size: xx-large;
+           }
+
+           .ind{
+            color: brown;
+            font-style: oblique;
+            font-size: xx-large;
+            font-weight: bold;
+           }
+
+          .btn{
+            border: 2px solid gray;
+            color: rgb(246, 246, 247);
+            background-color: white;
+            padding: 3px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgb(26, 26, 68);
+          }
+          .btn1{
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 3px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          
+        </style>
+    </head>
+    
+    <body style="background-image: url('{% static 'members/images/cool-background.png' %}');">
+        {% if messages %}
+        {% for message in messages %}
+ 
+        <div class="alert alert-{{message.tags}} " role="alert">
+           <p {% if message.tags%} class=""{% endif %}>{{message}}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+       
+        <img src="{% static 'members/images/download_img.png' %}"  width="140" height="90" style="background-color:rgb(233, 19, 30) ;">
+        <center>
+        <label class="ind" for="fname" style="color: #0d09ec;">INDICATIVE QUOTE</label>
+        <form method="post" enctype="multipart/form-data" action="">
+            <h2>
+                Please Upload Excel File 
+            </h2>
+            {% csrf_token %}
+
+            <label for="fname" style="color: #0d09ec;">Price_Per_100:</label><br>
+            <input required type="text" id="fname" name="num"><br><br>
+
+            <input required type="file" name="myfile">
+            <button class="btn1" name="uploade"  type="submit" style="color:rgb(13, 9, 230); background-color: #95d658 ;" >Upload</button>
+            <br><br>
+         
+            <a class="btn" href="\hello_world.xlsx">  Download </a> 
+            <br><br>
+        </form>
+        </center>
+        {{table|safe}}
+
+    </body>
+</html> 
